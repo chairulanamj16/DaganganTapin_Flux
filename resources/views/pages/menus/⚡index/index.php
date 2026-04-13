@@ -1,50 +1,26 @@
 <?php
 
 use App\Models\Menu;
+use Flux\Flux;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 new class extends Component {
-    public $sortBy, $sortDirection;
 
-    // Form
-    public $name, $subdomain, $icon, $order, $parent_menu;
-
-    public function with()
+    #[Computed]
+    public function menus()
     {
-        $data['menus'] = Menu::paginate(5);
-        return $data;
+        return Menu::orderBy('order', 'ASC')->where('parent_id', null)->paginate(10);
     }
 
-    public function sort($field)
+    public function handleSort($id, $position)
     {
-        if ($this->sortBy === $field) {
-            // kalau klik kolom yang sama → toggle asc/desc
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            // kalau kolom baru → default asc
-            $this->sortBy = $field;
-            $this->sortDirection = 'asc';
-        }
-    }
-
-    public function simpan()
-    {
-        $this->validate([
-            'name' => 'required|string',
-            'subdomain' => 'required|string',
-            'icon' => 'required|string',
-            'order' => 'required|string',
-            'parent_menu' => 'nullable|string',
-        ]);
-
-        $menu = new Menu();
-        $menu->uuid = str()->uuid();
-        $menu->name = $this->name;
-        $menu->subdomain = $this->subdomain;
-        $menu->icon = $this->icon;
-        $menu->order = $this->order;
-        $menu->permission_view = 'view_' . $this->subdomain;
-        $menu->parent_id = $this->parent_menu;
+        // $task = $this->list->tasks()->findOrFail($id);
+        $menu = Menu::find($id);
+        $menu->order = $position;
         $menu->save();
+        Flux::toast(variant: 'success', heading: "Terupdate", text: "berhasil mengubah order");
+        $this->redirectRoute('menus.index', navigate: true);
+        // Update the task's position and re-order other tasks...
     }
 };

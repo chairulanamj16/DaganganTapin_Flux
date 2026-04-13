@@ -17,8 +17,8 @@ class MenuSeeder extends Seeder
             [
                 'name' => 'Role and Permissions',
                 'subdomain' => null,
-                'icon' => 'database',
-                'order' => 0,
+                'icon' => null,
+                'order' => 99,
                 'permission_view' => null,
                 'parent_id' => null,
             ],
@@ -41,8 +41,8 @@ class MenuSeeder extends Seeder
             [
                 'name' => 'Settings',
                 'subdomain' => null,
-                'icon' => 'settings',
-                'order' => 0,
+                'icon' => null,
+                'order' => 98,
                 'parent_id' => null,
             ],
             [
@@ -60,6 +60,30 @@ class MenuSeeder extends Seeder
                 'order' => 0,
                 'permission_view' => 'view_menus',
                 'parent_id' => 4,
+            ],
+            [
+                'name' => 'Dashboard',
+                'subdomain' => 'dashboard',
+                'icon' => 'home',
+                'order' => 0,
+                'permission_view' => 'view_dashboard',
+                'parent_id' => null,
+            ],
+            [
+                'name' => 'Toko',
+                'subdomain' => null,
+                'icon' => null,
+                'order' => 1,
+                'permission_view' => null,
+                'parent_id' => null,
+            ],
+            [
+                'name' => 'Produk',
+                'subdomain' => 'produk',
+                'icon' => 'circle-stack',
+                'order' => 1,
+                'permission_view' => 'view_produk',
+                'parent_id' => 8,
             ],
             // tambahkan menu lain sesuai kebutuhan
         ];

@@ -39,6 +39,6 @@ new class extends Component
     {
         Permission::find($id)->delete();
         Flux::toast(variant: 'success', heading: "Terhapus", text: "berhasil menghapus data");
-        $this->redirectRoute('permission.index', navigate: true);
+        $this->redirectRoute('permissions.index', navigate: true);
     }
 };

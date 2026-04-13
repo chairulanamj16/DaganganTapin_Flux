@@ -11,7 +11,7 @@ new class extends Component {
         $this->form->store();
         Flux::modal('add-permission')->close();
         Flux::toast(variant: 'success', heading: 'Tersimpan', text: 'berhasil menyimpan data');
-        $this->redirectRoute('permission.index', navigate: true);
+        $this->redirectRoute('permissions.index', navigate: true);
     }
 };
 ?>

@@ -13,30 +13,33 @@
             <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
             <flux:sidebar.collapse class="lg:hidden" />
         </flux:sidebar.header>
+        @php
+            $sidebar_menus = App\Models\Menu::with('children')->orderBy('order', 'ASC')->get();
+            function hasVisibleChildren($menuItem)
+            {
+                foreach ($menuItem->children as $child) {
+                    if ($child->subdomain != null && auth()->user()->can($child->permission_view)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        @endphp
 
         <flux:sidebar.nav>
             <flux:sidebar.group :heading="__('Platform')" class="grid">
-                <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
+                {{-- <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
                     wire:navigate>
                     {{ __('Home') }}
-                </flux:sidebar.item>
-                <flux:sidebar.group expandable :heading="__('Manajemen Akses')" class="grid">
-                    <flux:sidebar.item icon="list-bullet" :href="route('menus.index')"
-                        :current="request()->routeIs('menus')" wire:navigate>
-                        {{ __('Menus') }}
-                    </flux:sidebar.item>
-                    <flux:sidebar.item icon="key" :href="route('permission.index')"
-                        :current="request()->routeIs('permission')" wire:navigate>
-                        {{ __('Permission') }}
-                    </flux:sidebar.item>
-                    @can('view_roles')
-                        <flux:sidebar.item icon="paint-brush" :href="route('roles.index')"
-                            :current="request()->routeIs('roles')" wire:navigate>
-                            {{ __('Role') }}
-                        </flux:sidebar.item>
-                    @endcan
-
-                </flux:sidebar.group>
+                </flux:sidebar.item> --}}
+                @foreach ($sidebar_menus as $menu)
+                    @if ($menu->parent_id == null && $menu->children->isNotEmpty() && hasVisibleChildren($menu))
+                        <livewire:sidebar.item :sidebar_menu="$menu" additional_class="" :key="'sidebar-root-' . $menu->id" />
+                    @endif
+                    @if ($menu->parent_id == null && $menu->children->isEmpty())
+                        <livewire:sidebar.item :sidebar_menu="$menu" additional_class="" :key="'sidebar-root-' . $menu->id" />
+                    @endif
+                @endforeach
             </flux:sidebar.group>
         </flux:sidebar.nav>
 
@@ -48,9 +51,8 @@
                 {{ __('Repository') }}
             </flux:sidebar.item>
 
-            <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire"
-                target="_blank">
-                {{ __('Documentation') }}
+            <flux:sidebar.item icon="book-open-text" href="https://heroicons.com/" target="_blank">
+                {{ __('Icon Menu') }}
             </flux:sidebar.item>
         </flux:sidebar.nav>
 

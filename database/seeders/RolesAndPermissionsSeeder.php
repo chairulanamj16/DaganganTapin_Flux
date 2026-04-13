@@ -44,6 +44,8 @@ class RolesAndPermissionsSeeder extends Seeder
             ['name' => 'edit_permissions'],
             ['name' => 'delete_permissions'],
             // tambahkan permission lain sesuai kebutuhan
+            ['name' => 'view_dashboard'],
+            ['name' => 'view_produk'],
         ];
 
         foreach ($permissions as $permission) {
@@ -68,8 +70,10 @@ class RolesAndPermissionsSeeder extends Seeder
             'edit_menus',
             'delete_menus',
             'view_roles',
-            'view_permissions'
+            'view_permissions',
             // tambahkan permissions yang sesuai untuk Admin
+            'view_dashboard',
+            'view_produk',
         ]);
 
         // contoh: $role = Role::findByName('User');
