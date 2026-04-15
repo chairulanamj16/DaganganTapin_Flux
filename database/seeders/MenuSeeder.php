@@ -27,7 +27,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'roles',
                 'icon' => 'paint-brush',
                 'order' => 0,
-                'permission_view' => 'view_roles',
+                'permission_view' => 'view_admin/roles',
                 'parent_id' => 1,
             ],
             [
@@ -35,7 +35,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'permissions',
                 'icon' => 'key',
                 'order' => 0,
-                'permission_view' => 'view_permissions',
+                'permission_view' => 'view_admin/permissions',
                 'parent_id' => 1,
             ],
             [
@@ -50,7 +50,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'users',
                 'icon' => 'users',
                 'order' => 0,
-                'permission_view' => 'view_users',
+                'permission_view' => 'view_admin/users',
                 'parent_id' => 4,
             ],
             [
@@ -58,7 +58,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'menus',
                 'icon' => 'list-bullet',
                 'order' => 0,
-                'permission_view' => 'view_menus',
+                'permission_view' => 'view_admin/menus',
                 'parent_id' => 4,
             ],
             [
@@ -66,7 +66,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'dashboard',
                 'icon' => 'home',
                 'order' => 0,
-                'permission_view' => 'view_dashboard',
+                'permission_view' => 'view_admin/dashboard',
                 'parent_id' => null,
             ],
             [
@@ -82,7 +82,7 @@ class MenuSeeder extends Seeder
                 'subdomain' => 'produk',
                 'icon' => 'circle-stack',
                 'order' => 1,
-                'permission_view' => 'view_produk',
+                'permission_view' => 'view_admin/produk',
                 'parent_id' => 8,
             ],
             // tambahkan menu lain sesuai kebutuhan

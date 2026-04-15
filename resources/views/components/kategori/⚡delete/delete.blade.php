@@ -1,7 +1,7 @@
 <div>
-    <x-ui.modal-action name="delete-menu-{{ $menu->uuid }}">
+    <x-ui.modal-action name="delete-kategori-{{ $category->uuid }}">
         <x-slot:trigger>
-            <flux:button variant="danger" size="sm">
+            <flux:button size="sm" variant="danger">
                 <i class="fas fa-trash fa-fw"></i>
                 Hapus
             </flux:button>
@@ -21,7 +21,7 @@
                         Batal
                     </flux:button>
                 </flux:modal.close>
-                <flux:button type="submit" variant="danger" wire:click='destroy()'>
+                <flux:button type="submit" variant="danger" wire:click='destroy'>
                     Hapus Data
                 </flux:button>
             </div>

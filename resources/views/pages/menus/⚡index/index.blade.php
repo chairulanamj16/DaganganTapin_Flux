@@ -52,7 +52,11 @@
                         </flux:table.cell>
                         <flux:table.cell>
                         </flux:table.cell>
-                        <flux:table.cell>
+                        <flux:table.cell class="flex items-center space-x-1">
+                            <livewire:menus.edit :menu="$menu" />
+                            @if ($menu->children->count() < 1)
+                                <livewire:menus.delete :menu="$menu" />
+                            @endif
                         </flux:table.cell>
 
                     </flux:table.row>
@@ -79,7 +83,9 @@
                             <flux:table.cell>
                                 {{ $child->parent->name }}
                             </flux:table.cell>
-                            <flux:table.cell>
+                            <flux:table.cell class="flex items-center space-x-1">
+                                <livewire:menus.edit :menu="$child" />
+                                <livewire:menus.delete :menu="$child" />
                             </flux:table.cell>
                         </flux:table.row>
                     @endforeach
