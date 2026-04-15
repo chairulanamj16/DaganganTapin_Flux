@@ -27,25 +27,25 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // Permissions
         $permissions = [
-            ['name' => 'view_users'],
+            ['name' => 'view_admin/users'],
             ['name' => 'create_users'],
             ['name' => 'edit_users'],
             ['name' => 'delete_users'],
-            ['name' => 'view_menus'],
+            ['name' => 'view_admin/menus'],
             ['name' => 'create_menus'],
             ['name' => 'edit_menus'],
             ['name' => 'delete_menus'],
             ['name' => 'create_roles'],
             ['name' => 'delete_roles'],
             ['name' => 'edit_roles'],
-            ['name' => 'view_roles'],
+            ['name' => 'view_admin/roles'],
             ['name' => 'create_permissions'],
-            ['name' => 'view_permissions'],
+            ['name' => 'view_admin/permissions'],
             ['name' => 'edit_permissions'],
             ['name' => 'delete_permissions'],
             // tambahkan permission lain sesuai kebutuhan
-            ['name' => 'view_dashboard'],
-            ['name' => 'view_produk'],
+            ['name' => 'view_admin/dashboard'],
+            ['name' => 'view_admin/produk'],
         ];
 
         foreach ($permissions as $permission) {
@@ -61,19 +61,19 @@ class RolesAndPermissionsSeeder extends Seeder
             'create_permissions',
             'edit_permissions',
             'delete_permissions',
-            'view_users',
+            'view_admin/users',
             'create_users',
             'edit_users',
             'delete_users',
-            'view_menus',
+            'view_admin/menus',
             'create_menus',
             'edit_menus',
             'delete_menus',
-            'view_roles',
-            'view_permissions',
+            'view_admin/roles',
+            'view_admin/permissions',
             // tambahkan permissions yang sesuai untuk Admin
-            'view_dashboard',
-            'view_produk',
+            'view_admin/dashboard',
+            'view_admin/produk',
         ]);
 
         // contoh: $role = Role::findByName('User');
