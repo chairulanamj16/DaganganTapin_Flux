@@ -24,7 +24,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Role',
-                'subdomain' => 'roles',
+                'subdomain' => 'admin/roles',
                 'icon' => 'paint-brush',
                 'order' => 0,
                 'permission_view' => 'view_admin/roles',
@@ -32,7 +32,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Permission',
-                'subdomain' => 'permissions',
+                'subdomain' => 'admin/permissions',
                 'icon' => 'key',
                 'order' => 0,
                 'permission_view' => 'view_admin/permissions',
@@ -47,7 +47,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Users',
-                'subdomain' => 'users',
+                'subdomain' => 'admin/users',
                 'icon' => 'users',
                 'order' => 0,
                 'permission_view' => 'view_admin/users',
@@ -55,7 +55,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Menus',
-                'subdomain' => 'menus',
+                'subdomain' => 'admin/menus',
                 'icon' => 'list-bullet',
                 'order' => 0,
                 'permission_view' => 'view_admin/menus',
@@ -63,7 +63,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Dashboard',
-                'subdomain' => 'dashboard',
+                'subdomain' => 'admin/dashboard',
                 'icon' => 'home',
                 'order' => 0,
                 'permission_view' => 'view_admin/dashboard',
@@ -79,11 +79,27 @@ class MenuSeeder extends Seeder
             ],
             [
                 'name' => 'Produk',
-                'subdomain' => 'produk',
+                'subdomain' => 'admin/produk',
                 'icon' => 'circle-stack',
                 'order' => 1,
                 'permission_view' => 'view_admin/produk',
                 'parent_id' => 8,
+            ],
+            [
+                'name' => 'Database',
+                'subdomain' => null,
+                'icon' => null,
+                'order' => 2,
+                'permission_view' => null,
+                'parent_id' => null,
+            ],
+            [
+                'name' => 'Kategori',
+                'subdomain' => 'admin/kategori',
+                'icon' => 'tag',
+                'order' => 1,
+                'permission_view' => 'view_admin/kategori',
+                'parent_id' => 10,
             ],
             // tambahkan menu lain sesuai kebutuhan
         ];
