@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\MenuController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('home');
+Route::livewire('/', 'frontend::home.index')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function ($route) {
     Route::prefix('admin')->group(function () {

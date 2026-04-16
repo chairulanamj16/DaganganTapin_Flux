@@ -11,7 +11,7 @@
                 <flux:input label="Label" placeholder="Label" wire:model='form.title' />
                 <div wire:ignore class="relative">
                     <label for="permissions">Kategori</label>
-                    <div class="mt-1" />
+                    <div class="mt-1"></div>
                     <select id="category">
                         <option value=""></option>
                         @foreach ($this->categories as $category)

@@ -6,16 +6,16 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public $selectDelete = [];
+    public $selectItem = [];
     #[Computed]
     public function products()
     {
-        return Product::paginate(5);
+        return Product::paginate(10);
     }
 
     public function deleteSelected()
     {
-        $itemSelect = Product::whereIn('uuid', $this->selectDelete)->get();
+        $itemSelect = Product::whereIn('uuid', $this->selectItem)->get();
         foreach ($itemSelect as $value) {
             $value->forceDelete();
         }
