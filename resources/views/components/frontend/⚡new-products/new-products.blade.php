@@ -1,9 +1,9 @@
-<div class="grid grid-cols-2 space-x-2 space-y-2">
+<div class="grid grid-cols-2 md:grid-cols-8 space-x-2 space-y-2">
     @foreach ($this->products as $product)
         <div class="bg-white rounded-2xl">
             <img src="{{ url('storage/' . $product->gambar) }}" alt="{{ $product->title }}"
-                class="rounded-t-2xl w-100 h-[150px]">
-            <div class="p-3">
+                class="rounded-t-2xl w-100 h-37.5">
+            <div class="p-3 flex-col justify-between items-center">
                 <h4 class="text-gray-700 text-[12px] font-bold mb-2">
                     {{ $product->title }}
                 </h4>
